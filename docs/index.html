@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="webpage.css" />
+
+    <title>ECS171 Project</title>
+  </head>
+
+  <body>
+    <nav
+      id="navBarMain"
+      class="navbar navbar-expand-lg navbar-dark py-0 fixed-top"
+    >
+      <a class="navbar-brand" href="#">ECS171 Project</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+    </nav>
+
+    <!-- The blue stripe -->
+    <hr id="background_stripe">
+
+    <!--Title of the project-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div
+            id="headingGroup" class="text-center text-white d-none d-lg-block mt-5">
+
+            <!-- Enter General info for the project here (eg Names, Title, etc) -->
+            <h1>S&P 500 Stock Market Predictions</h1> 
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+
+          <!--Insert names here-->
+          <div class="names">
+            <p >Parminder Singh &nbsp; Yuan Chang &nbsp; 
+              Nathaniel Faxon &nbsp; Cesar Guzman Avina 
+            </p> 
+            <p>
+              Kanchan Kaur &nbsp; Will Colbert &nbsp; Sergio Santoyo
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--Introduction for the project-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-1 order-md-2">
+          <img class="img-fluid" src="imgs/s&p500graph.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-1 order-md-2 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2> Introduction and Background </h2>
+
+              <!--Introduction to Project-->
+              <p class="lead">
+                Stock markets span all industries and sectors, it is a key factor in determining the state and cycle of the economy. 
+                Machine learning can be used to identify stock market and financial trends, typically done using the 
+                <strong> LSTM (Long Short-term Memory) model, support vector machines (SVM), artificial neural networks (ANN) </strong> , and <strong> back 
+                propagation neural networks (BPNN)</strong> . While machine learning can be used to predict stock prices and market crashes, 
+                this is a challenging problem. The stock market can be volatile, influenced by many factors, ranging from politics, 
+                unexpected events, psychological factors, a company's performance, and so on. If a market prediction model is built to 
+                successfully predict a stock market crash, it can be beneficial to investors, while also giving a warning to companies 
+                and the general public.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 1-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-1 order-md-2">
+          <!--Distribution 1 image here-->
+          <img class="img-fluid" src="imgs/dataset_graphs.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-2 order-md-1 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Dataset Description and Exploratory Data Analysis</h2>
+
+              <p class="lead">
+                The dataset used throughout this project was supplied from Kaggle. It provided us with 15032 rows which included the columns: 
+                <strong> closing, opening, low, and high prices as well as the volume, P/E ratio, EPS, % gain and loss, and price variation </strong>
+                for S&P 500. Data was taken from 1962 to 2021. 
+              </p>
+              <p class="lead">
+                The dataset was selected because of the extensive range of dates it includes as well as the amount of details it has for each date. 
+                Overall there is a general trend upwards in the data relating to the Open, Close, High, Low, and Volume. As seen in the plots to the right:
+              </p>
+              <p class="lead">
+                We thought that the PE ratio would be a stronger indicator of the market's
+                trend, and we used an additional S&P 500 dataset that contains the monthly
+                PE ratio, and it is from Nasdaq. In order to facilitate the PE ratio data, we
+                extracted the attributes of the stock market for the first day of each month,
+                and added the PE ratio column. This becomes the condensed datasets, which
+                contain 717 data points.
+                PE ratio was excluded from the input attributes at the later stage, because
+                it didn't produce very accurate prediction models. After excluding it, we are
+                free to use the daily stock dataset, which contains 15032 data points.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 2-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-2 order-md-1">
+          <img class="img-fluid" src="imgs/p3.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-1 order-md-2 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Data Analysis: Heatmap and Pairplots</h2>
+
+              <p class="lead">
+                As a basic starting step, we wanted to see if there were any relationships between a S&P 500’s stock closing price and some other variable. 
+                After doing some research, we found that a good prediction of a stock's price comes from its <strong>P/E ratio multiplied by EPS</strong>. 
+                We made a dataset containing the value at the beginning of each month of the P/E ratio, EPS, P/E ratio multiplied by EPS, and the closing price 
+                for S&P 500. To confirm variable relationships, we created a <strong>heat map </strong> with the variables as well as a <strong>pairplot</strong>.
+                As seen to the left, Closing price and P/E * EPS seems to have a linear relationship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 3-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-1 order-md-2">
+          <!--Distribution 1 image here-->
+          <img class="img-fluid" src="imgs/lin_poly.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-2 order-md-1 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Linear and Polynomial Regression on P/E &#215; EPS and Closing Price</h2>
+
+              <p class="lead">
+                Since closing price and P/E * EPS seems to have a linear relationship, we created a <strong>linear regression model </strong> first to see the 
+                <strong>training MSE (Mean Squared Error) </strong> and how well a line visually fits the data. We also did a <strong>polynomial regression model 
+                with a degree of 2 </strong> just to see if the data had a polynomial relationship. For both these models, Sklearn’s Linear and Polynomial 
+                regression libraries were used and training and testing data was split by 80:20. Based on the shown results, there is a very high <strong>R2 score 
+                </strong> for both the linear and polynomial regressions which means that the line fits the data pretty well, thus high correlation between the two 
+                variables. There is a very high MSE, but this is due to how large the data values are and how many values there are in general. Though these models 
+                have helped show variable relationships and trends, we wanted to create more models that take into account more variables.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 4-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-2 order-md-1">
+          <img class="img-fluid" src="imgs/univariate.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-1 order-md-2 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Univariate</h2>
+
+              <p class="lead">
+                In our second version of our implementation it came to notice that our dataset is linked to time. So we approached it now using a <strong> Long Short 
+                Term Memory neural network </strong>. We started with a <strong>univariate LSTM model </strong> where the model predicted the closing price of the next 
+                day using the previous 50 days (time step), but the model failed to predict anything. We then chose to change the time step to 14 days, as this was the 
+                most used machine learning approach on the stock market. That result was looking promising, but we then realized that using previous closing prices to 
+                predict the next closing price is not a good feature. We decided to proceed in using more than one feature in our dataset to strengthen our model. 
+              </p>
+
+              <ul>
+                <h3 class="subhead">Univariate Model Time Series Configuration</h3>
+                <li>Using closing price alone</li>
+                <li>3 hidden layers</li>
+                <ul>
+                    <li>2 LSTM layer(one with return sequence, one without), 1 regular dense layer</li>
+                    <li>Units = [128, 64, 32, 1]</li>
+                    <li>All using tanh as activation function, as default</p>
+                    </ul>
+                <li>First 2 layers employed dropout rate of 20%</p>
+                <li>Mini batch size tested: 4, 12, 16, 24. Highest accuracy achieved with 24 batch size. </li>
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 5-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-1 order-md-2">
+          <!--Distribution 1 image here-->
+          <img class="img-fluid" src="imgs/multivariate.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-2 order-md-1 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Multivariate</h2>
+
+              <p class="lead">
+                In our most current implementation, we applied open, low, high, and volume features in addition to the closing price. Since we were going to be predicting 
+                data points in the stock market, we knew that this would be a regression model problem. With this, we knew a neural network would need to be used to predict 
+                and find relationships between the data. Due to the fact that we are using multiple previous day values to predict the future stock price, we had to find a 
+                type of neural network that could utilize multiple sequences of data. After looking around we found that the Long Short Term Memory model was able to use 
+                multiple sequences, and then began to work with that type of model. We started with a univariate model of just using the Open price but realized that using 
+                more data (Open, Close, High, Low, and Volume) in a <strong>multivariate model </strong> was much better than the univariate.
+              </p>
+
+              <ul>
+                <h3 class="subhead">Multivariate Model Time Series Configuration</h3>
+                <li>Using [Open, Low, High, Volume, Closing price] as input attributes</li>
+                <li>3 hidden layers</li>
+                <ul>
+                    <li>2 LSTM layer(one with return sequence, one without), 1 regular dense layer</li>
+                    <li>Units = [64, 64, 32, 1]</li>
+                    <li>All using tanh as activation function, as default</p>
+                    </ul>
+                <li>First 2 layers employed dropout rate of 20%</p>
+                <li>Mini batch size tested: 24 and 36, where size 36 achieved best accuracy.</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 6-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-2 order-md-1">
+          <img class="img-fluid" src="imgs/results.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-1 order-md-2 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Experimental Results</h2>
+
+              <p class="lead">
+                Since the prediction model we are building is essentially a regression model,
+                we are using MSE and R2 score as the main evaluation metrics to compare
+                different performing models.
+              </p>
+
+              <p class="lead">
+                The experimental results for the linear and polynomial regression models
+                were shown in the previous section, this section will be devoted to demonstrate
+                the performance of the time series analysis models.
+              </p>
+
+              <p class="lead">
+                In order to visualize the performance of each time series model, we plotted
+                the entire predicted price against the actual price. Note that the condensed
+                model plots are plotting monthly, whereas the full models are plotting daily.
+                The left plots were trained using the condensed
+                dataset, where it is spanning from Jan of 1962 to September of 2021, and the
+                data is recorded monthly. 
+              </p>
+
+              <p class="lead">
+                For the next two graphs, they are predicted price plots using models trained
+                using the full dataset. The full dataset contains daily recordings of the stock
+                market since January 2nd 1962 till September 17th 2021.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 7-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-1 order-md-2">
+          <!--Distribution 1 image here-->
+          <img class="img-fluid" src="imgs/p11.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-2 order-md-1 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Results Continued: MSE & R2 Scores</h2>
+
+              <p class="lead">
+                We have calculated the MSE and R2 score of all the time series models. We
+                saw a sharp decrease of MSE error when the dataset increased from condensed
+                to full, and an overall increase of R2 score as well.
+              </p>
+
+              <p class="lead">
+                We also noticed that the highest R2 score and the lowest MSE error were
+                both recorded on the univariate model that was trained using the full dataset.
+                This made sense as the univariate model was using closing price's history to
+                predict future closing price. Whereas multivariate model had attributes such as
+                volume that might negatively impact the performance, since volume has weaker
+                correlation to closing price compared to other attributes.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Distribution and description 8-->
+    <section class="container-fluid px-0">
+      <div class="row align-items-center content">
+        <div class="col-md-6 order-2 order-md-1">
+          <img class="img-fluid text-center" id="rightmore" src="imgs/meme.png" alt="" />
+        </div>
+        <div class="col-lg-6 text-center order-1 order-md-2 blurb mb-5 mb-md-0">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-8">
+              <h2>Conclusion</h2>
+
+              <p class="lead">
+                One of the conclusions we arrived at the end of this research project is that it is 
+                nearly impossible to predict the stock market's closing price. In the real world, 
+                the stock market is volatile, dynamic and unpredictable. Thus, we can discuss the model's 
+                improvements in two ways. First, since the models we produced were essentially models of 
+                the stock market of its current form, one potential improvement would be to increase the 
+                accuracy of our model. Ultimately to allow our model to mimic the stock market, at least 
+                till today. We could always increase the model's performance through tuning the hyperparameters. 
+                In the interest of time, we only tuned the time step, number of nodes in each layer and the 
+                mini-batch size. Other than those, there are parameters such as the number of layers, activation 
+                function, regularization techniques we can try to improve the model. Furthermore, another 
+                direction to improve the model is to add additional attributes that reflect the population's 
+                confidence level about the stock market. These kinds of attributes would be hard to quantify 
+                and produce, which may require their own machine learning models as well. Since the stock market's 
+                closing price can be greatly influenced by people's attitude, it would be an excellent addition to 
+                our time series model.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(function () {
+        $(document).scroll(function () {
+          var $nav = $("#navBarMain");
+          $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        });
+      });
+    </script>
+  </body>
+</html>

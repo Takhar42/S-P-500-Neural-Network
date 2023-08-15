@@ -1,0 +1,13 @@
+# Latex supporting files
+*.aux
+*.log
+*.synctex.gz
+*.out
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+
+# Mac files
+*/.DS_Store
+.DS_Store

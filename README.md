@@ -81,5 +81,6 @@ Here is an additional website showcasing our progress: https://nfax117.github.io
 - Nathaniel Faxon
 - Kanchan Kaur
 - Parminder Singh
+- Arjun Takhar 
 
 Last updated on May 31st, 2022
